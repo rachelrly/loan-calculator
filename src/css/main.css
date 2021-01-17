@@ -1,0 +1,232 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: var(--font);
+  line-height: var(--line-spacing);
+}
+
+h2, h3{
+  font-size: var(--font-size-med);
+}
+
+p{
+  padding: var(--spacer-sm) 0;
+  font-size: var(--font-size-sm);
+}
+
+p:last-of-type{
+  padding-bottom: 0;
+}
+
+a{
+  text-decoration: none;
+  color: var(--colors-accent);
+}
+
+button, .button{
+  cursor: pointer;
+  outline: 0;
+  font-size: var(--font-size-sm);
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: inherit;
+  color: var(--colors-accent);
+  border: var(--border-width) solid var(--colors-accent);
+  padding: var(--spacer-tiny);
+  border-radius: var(--button-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:focus, .button:focus,
+button:hover, .button:hover{
+  background-color: var(--colors-accent);
+  color: var(--colors-white);
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  padding: var(--spacer-sm) var(--spacer-lg);
+  justify-content: flex-start;
+  height: 100%;
+  color: var(--colors-black);
+}
+
+/*section padding increased on first and last items*/
+section:first-of-type{
+  padding-top: var(--spacer-lg);
+}
+
+section:last-of-type{
+  padding-bottom: var(--spacer-lg);
+}
+
+
+img{
+  width: 100%;
+}
+
+/*HEADER STYLES */
+header{
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colors-accent);
+  color: var(--colors-white);
+  padding: var(--spacer-sm);
+  height: var(--button-width);
+}
+
+h1{
+  font-size: var(--font-size-lg);
+}
+
+header button,
+header .button{
+  color: var(--colors-white);
+  border: var(--border-width) solid var(--colors-white);
+  background-color: inherit;
+}
+
+header button:focus, header .button:focus,
+header button:hover, header .button:hover{
+  background-color: var(--colors-white);
+  color: var(--colors-accent);
+  border: var(--border-width) solid var(--colors-accent);
+}
+/* END HEADER STYLES */
+
+
+
+/*STYLES FOR FORM ELEMENTS*/
+/*sets up form as flexbox with max width of 4x button width*/
+form{
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(4 * var(--button-width));
+}
+/*sets label and input next to each other*/
+fieldset{
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacer-sm) 0;
+  outline: 0;
+  border: 0;
+}
+/*limits width of label*/
+label{
+  padding-right: var(--spacer-sm);
+  width: var(--button-width);
+}
+
+input{
+  font-size: var(--font-size-sm);
+  border: var(--border-width) solid grey;
+}
+
+input, textarea{
+  flex: 3;
+  width: 100%;
+  padding: var(--spacer-tiny) ;
+  font-size: var(--font-size-sm);
+  outline: 0;
+}
+
+input:focus, textarea:focus{
+  outline: var(--border-width) solid var(--colors-accent);
+}
+/*END FORM STYLES*/
+
+
+
+/*
+FOOTER STYLES 
+Meant to be used with custom footer component*/
+footer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: inherit;
+  height: 100%;
+  background-color: var(--colors-accent);
+  color: var(--colors-white);
+  padding: var(--spacer-sm);
+}
+
+footer .icon{
+  color: var(--colors-white);
+  font-size: var(--font-size-med);
+  height: var(--font-size-med);
+  
+}
+
+footer a{
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+}
+
+footer a:hover .icon,
+footer a:focus .icon{
+  color: var(--colors-accent);
+}
+
+footer p{
+  padding: 0;
+  font-size: var(--font-size-sm);
+}
+/*END FOOTER STYLES */
+
+
+
+@media all and (min-width: 500px){
+  /*Flips header to row at screens over 500px and removes col-specific padding*/
+  header{
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  h1{
+      padding-left: 0;
+      padding-bottom: var(--spacer-sm);
+      padding-top: var(--spacer-sm);
+  }
+}
+
+@media all and (min-width: 600px){
+   /*Increases space on left and right of header*/
+   header{
+       padding: var(--spacer-sm) var(--spacer-lg);
+   }
+   p{
+       padding-bottom: 0;
+   }
+}
+
+@media all and (min-width: 1000px){
+  section{
+      max-width: var(--max-page-width);
+  }
+}
