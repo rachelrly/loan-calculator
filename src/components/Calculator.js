@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 import LoanAmount from './LoanAmount'
-
+import InterestRate from './InterestRate'
 
 function Calculator() {
   const { dispatch, loanAmt } = useContext(LoanContext);
@@ -16,10 +16,7 @@ function Calculator() {
         <label>Loan term</label>
         <input type='text' onChange={e => { }} />
       </fieldset>
-      <fieldset>
-        <label>Interest rate per year</label>
-        <input type='text' onChange={e => { }} />
-      </fieldset>
+      <InterestRate />
     </form>
   )
 }

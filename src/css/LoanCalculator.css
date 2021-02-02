@@ -5,6 +5,41 @@
   align-self: center;
 }
 
+.dollar-sign-input{
+  position: relative;
+}
+
+.loan-amount-input{
+  padding-left: 35px;
+}
+
+.dollar-sign{
+  right: 170px;
+  width: inherit;
+  
+}
+.interest-rate-input{
+  padding-right: 45px;
+}
+
+.percent-sign{
+width: inherit;
+right: calc(var(--spacer-sm) + 35px);
+}
+
+.percent-sign, .dollar-sign{
+  overflow: visible;
+  z-index: 5;
+  font-weight: bold;
+  padding-top: 2px;
+  position: absolute;
+  font-size: var(--font-size-med);
+  color: var(--colors-accent);
+}
+
+
+
+
 @media all and (min-width: 700px){
   .loan-calculator-wrapper{
     flex-direction: row;

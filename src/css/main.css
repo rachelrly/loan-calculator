@@ -62,6 +62,7 @@ section{
   width: inherit;
   padding: var(--spacer-sm) var(--spacer-lg);
   justify-content: flex-start;
+  align-items: center;
   height: 100%;
   color: var(--colors-black);
 }
@@ -87,8 +88,7 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--colors-accent-dark);
-  color: var(--colors-accent-light);
+  color: var(--colors-accent-dark);
   padding: var(--spacer-sm);
   height: var(--button-width);
 }
@@ -124,6 +124,15 @@ form{
   align-items: center;
   max-width: calc(4 * var(--button-width));
 }
+
+form::after{
+  content: ' ';
+  width: 100%;
+  margin: var(--spacer-sm) 0;
+  height: calc(2 * var(--border-width));
+  background-color: var(--colors-accent);
+}
+
 /*sets label and input next to each other*/
 fieldset{
   width: inherit;
@@ -137,25 +146,39 @@ fieldset{
 /*limits width of label*/
 label{
   padding-right: var(--spacer-sm);
-  width: var(--button-width);
+  min-width: var(--button-width);
 }
 
 input{
-  font-size: var(--font-size-sm);
-  border: var(--border-width) solid grey;
+  font-size: var(--font-size-med);
+  border: var(--border-width) solid var(--colors-accent-dark);
+  width: 200px;
+  padding-top: 2px;
+
 }
 
 input, textarea{
-  flex: 3;
-  width: 100%;
   padding: var(--spacer-tiny) ;
   font-size: var(--font-size-sm);
   outline: 0;
 }
 
 input:focus, textarea:focus{
+  border: var(--border-width) solid var(--colors-accent);
   outline: var(--border-width) solid var(--colors-accent);
 }
+
+/* .dollar-sign-input{
+  font-size: var(--font-size-sm);
+  border: var(--border-width) solid grey;
+  width: 200px;
+}
+
+.dollar-sign-input input{
+  border: 0;
+} */
+
+
 /*END FORM STYLES*/
 
 

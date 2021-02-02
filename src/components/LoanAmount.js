@@ -3,25 +3,19 @@ import { LoanContext } from '../contexts/LoanContext'
 import { isNumericValue } from '../utils/utils'
 
 function LoanAmount() {
-  const { dispatch, loanAmount } = useContext(LoanContext)
+  const { handleLoanAmt, loanAmount } = useContext(LoanContext)
 
-  const handleDispatch = e => {
-    //check if number
-    console.log(e.target.value)
-    if (!isNumericValue(e.target.value)) return null
-    console.log('got past regex')
-    dispatch({
-      type: 'changeAmt',
-      payload: { val: e.target.value }
-    })
-  }
+
 
   useEffect(() => { }, [loanAmount])
 
   return (
     <fieldset>
-      <label>Loan amount</label>
-      <input type='text' value={loanAmount} onChange={e => handleDispatch(e)} />
+      <label className='loan-amount-label'>Loan amount</label>
+      <span className='dollar-sign-input'>
+        <span className='dollar-sign'>$</span>
+        <input type='text' className='loan-amount-input' value={loanAmount} onChange={e => handleLoanAmt(e.target.value)} />
+      </span>
     </fieldset>
   )
 }
