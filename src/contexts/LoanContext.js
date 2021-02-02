@@ -19,7 +19,7 @@ function LoanContextProvider({ children }) {
 
 
   const [state, dispatch] = useReducer(
-    reducer, { loanAmt: 0, loanTerm: 0, interestRate: 0 }
+    reducer, { loanAmt: 12000, loanTerm: 12, interestRate: 6.5 }
   )
 
   const { loanAmt, loanTerm, interestRate } = state

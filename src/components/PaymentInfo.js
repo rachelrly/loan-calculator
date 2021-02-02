@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
-
+import { useCalculatePayments } from '../hooks/hooks'
 
 function PaymentInfo() {
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
@@ -8,7 +8,7 @@ function PaymentInfo() {
   useEffect(() => { }, [loanAmt, loanTerm, interestRate])
   return (
     <div className='payment-info-wrapper'>
-
+      <p>{useCalculatePayments()}</p>
     </div>
   )
 }

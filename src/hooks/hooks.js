@@ -22,14 +22,18 @@ export function useInterestRate(value) {
 }
 
 export function useCalculatePayments() {
-  /*Used formula: r(PV) / 1 - (1+r)^ -n 
-  n = 12 (number of periods)
-  r = interestRate / n */
+  /*Used formula: r(PV) / 1 - (1+r)^ -n*/
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
-  const denominator = 1 -
-  //put formula for loan calcuator here
-//const payment = loanAmt / 
-  //return total and render to payment info
+  const n = loanTerm
+  const r = interestRate / n
+
+  const numerator = r * loanAmt
+  const denominator = 1 - Math.pow(1 + r, (n * -1))
+  const payment = numerator / denominator
+
+  //I know this could cause rounding issues with money
+  //FIX IF TIME!!!!!
+  return parseFloat(payment).toFixed(2)
 
 }
 

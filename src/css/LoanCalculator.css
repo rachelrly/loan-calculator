@@ -5,7 +5,7 @@
   align-self: center;
 }
 
-@media all and (min-width: 650px){
+@media all and (min-width: 700px){
   .loan-calculator-wrapper{
     flex-direction: row;
     justify-content: space-evenly;
