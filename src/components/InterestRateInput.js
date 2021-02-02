@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
-import { isNumericValue } from '../utils/utils'
 
 
-function InterestRate() {
+function InterestRateInput() {
   const { handleInterestRate, interestRate } = useContext(LoanContext)
 
   useEffect(() => { }, [interestRate])
@@ -19,4 +18,4 @@ function InterestRate() {
   )
 }
 
-export default InterestRate
+export default InterestRateInput

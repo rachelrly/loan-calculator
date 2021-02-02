@@ -33,7 +33,7 @@ function LoanContextProvider({ children }) {
   }
 
   const value = { loanAmt, loanTerm: loanTerm.value, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
-  console.log(value)
+
   return (
     <LoanContext.Provider value={value}>
       {children}

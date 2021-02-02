@@ -2,3 +2,15 @@
   width: inherit;
   max-width: calc(4* var(--button-width));
 }
+
+.monthly-payment{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.monthly-payment-value{
+  display: flex;
+  position: relative;
+ 
+}

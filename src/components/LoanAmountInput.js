@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 
-function LoanAmount() {
+function LoanAmountInput() {
   const { handleLoanAmt, loanAmt } = useContext(LoanContext)
 
   useEffect(() => { }, [loanAmt])
@@ -17,4 +17,4 @@ function LoanAmount() {
   )
 }
 
-export default LoanAmount
+export default LoanAmountInput

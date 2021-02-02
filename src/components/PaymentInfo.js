@@ -10,8 +10,14 @@ function PaymentInfo() {
   useEffect(() => { }, [loanAmt, loanTerm, interestRate])
   return (
     <div className='payment-info-wrapper'>
+
       <div>
-        <p>{useCalculatePayments()}</p>
+        <h2 className='monthly-payment'>
+          <span className='monthly-payment-label'>Monthly payment: </span>
+          <div className='monthly-payment-value'>
+            <span >${useCalculatePayments()}</span>
+          </div>
+        </h2>
       </div>
     </div>
   )
