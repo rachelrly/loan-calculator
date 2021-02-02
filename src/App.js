@@ -1,13 +1,13 @@
 import React from 'react';
 import './css/variables.css';
 import './css/main.css';
-import Header from './components/Header';
+import LoanCalculator from './components/LoanCalculator';
 
 
 function App() {
   return (
     <main className="App">
-      <Header />
+      <LoanCalculator />
     </main>
   );
 }
