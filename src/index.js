@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import LoanContextProvider from './contexts/LoanContextProvider'
 
 ReactDOM.render(
-  <App />,
+  <LoanContextProvider>
+    <App />
+  </LoanContextProvider>,
   document.getElementById('root')
 );
