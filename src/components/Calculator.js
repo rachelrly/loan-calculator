@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
+import LoanAmount from './LoanAmount'
+
 
 function Calculator() {
+  const { dispatch, loanAmt } = useContext(LoanContext);
+  //have controlled state and pass state to dispatch!!!!!
+  //run dispatch in useEffect that 
+  useEffect(() => { }, [loanAmt])
 
   return (
     <form className='calculator-wrapper'>
-      <fieldset>
-        <label>Loan amount</label>
-        <input type='text' onChange={e => { }} />
-      </fieldset>
+      <LoanAmount />
       <fieldset>
         <label>Loan term</label>
         <input type='text' onChange={e => { }} />

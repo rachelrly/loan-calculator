@@ -32,6 +32,6 @@ This file also contains a private function called by the custom hooks to validat
 
 This hook takes the loan amount, loan term, and interest rate from context, and returns the payment calculated with this formula: `r(PV) / 1 - (1+r)^ -n`. Decimals are rounded to the second place.
 
-#### use
+### Utils
 
 ### CSS
