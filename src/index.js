@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import LoanContextProvider from './contexts/LoanContextProvider'
+import LoanContextProvider from './contexts/LoanContext'
 
 ReactDOM.render(
   <LoanContextProvider>

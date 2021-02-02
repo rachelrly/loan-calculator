@@ -1,0 +1,13 @@
+.loan-calculator-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+@media all and (min-width: 650px){
+  .loan-calculator-wrapper{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
