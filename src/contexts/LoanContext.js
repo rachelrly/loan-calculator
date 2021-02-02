@@ -5,13 +5,13 @@ export const LoanContext = createContext()
 
 /*This component wraps index.js */
 function LoanContextProvider({ children }) {
-
+  /*I used a reducer here because the state is deeply tied together */
   const reducer = (state, action) => {
     const { val } = action.payload
     switch (action.type) {
-      case 'changeAmt': return
-      case 'changeTerm': return
-      case 'changeInterest': return
+      case 'changeAmt': return { ...state, loanAmt: value }
+      case 'changeTerm': return { ...state, loanTerm: value }
+      case 'changeInterest': return { ...state, interestRate: value }
       case 'reset': return { loanAmt: 0, loanTerm: 0, interestRate: 0 }
     }
   }

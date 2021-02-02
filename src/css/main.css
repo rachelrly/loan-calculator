@@ -87,8 +87,8 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--colors-accent);
-  color: var(--colors-white);
+  background-color: var(--colors-accent-dark);
+  color: var(--colors-accent-light);
   padding: var(--spacer-sm);
   height: var(--button-width);
 }
