@@ -1,7 +1,4 @@
 import React, { createContext, useState } from 'react'
-import { validateLoanAmount, validateInterestRate, validateLoanTerm } from '../utils/utils'
-
-
 
 /*Instance of context */
 export const LoanContext = createContext()
@@ -9,7 +6,7 @@ export const LoanContext = createContext()
 /*This component wraps index.js */
 function LoanContextProvider({ children }) {
   const [loanAmt, setLoanAmt] = useState(0)
-  const [loanTerm, setLoanTerm] = useState(0)
+  const [loanTerm, setLoanTerm] = useState({ value: 0, type: 'month' })
   const [interestRate, setInterestRate] = useState(0)
 
   const isNumericValue = (value) => {
@@ -21,18 +18,22 @@ function LoanContextProvider({ children }) {
 
   const handleLoanAmt = val => {
     if (!isNumericValue(val)) return null
-    setLoanAmt(val)
+    setLoanAmt(Number(val))
   }
 
   const handleInterestRate = val => {
-    console.log(val)
     if (!isNumericValue(val)) return null
     else if (val > 100) return null //percent cannot be greater than 100
-    setInterestRate(val)
+    setInterestRate(Number(val))
   }
 
-  const value = { loanAmt, loanTerm, interestRate, handleLoanAmt, handleInterestRate }
+  const handleLoanTerm = (value, type = 'year') => {
+    if (!isNumericValue(Number(value))) return null
+    setLoanTerm({ value, type })
+  }
 
+  const value = { loanAmt, loanTerm: loanTerm.value, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
+  console.log(value)
   return (
     <LoanContext.Provider value={value}>
       {children}

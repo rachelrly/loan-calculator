@@ -5,6 +5,10 @@ import { LoanContext } from '../contexts/LoanContext'
 export function useCalculatePayments() {
   /*Used formula: r(PV) / 1 - (1+r)^ -n*/
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
+  console.log({ loanAmt }, { loanTerm }, { interestRate })
+
+  if (!loanAmt || !loanTerm || !interestRate) return 0
+
   const n = loanTerm
   const r = interestRate / n
 

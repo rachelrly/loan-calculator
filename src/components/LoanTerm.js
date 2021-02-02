@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { LoanContext } from '../contexts/LoanContext'
+
 
 function LoanTerm() {
-  const [termInMonts, setTermInMonts] = useState(false)
+  const { handleLoanTerm, loanTerm } = useContext(LoanContext)
+
+  useEffect(() => { }, [loanTerm])
 
   return (
-    <div className='loan-term-wrapper'>
+    <fieldset>
+      <label className='loan-amount-label'>Loan term</label>
 
-    </div>
+      <input type='text' className='loan-amount-input' value={loanTerm} onChange={e => handleLoanTerm(e.target.value)} />
+
+    </fieldset>
   )
 }
 

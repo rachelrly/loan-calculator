@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 import { useCalculatePayments } from '../hooks/hooks'
+import '../css/PaymentInfo.css'
+
 
 function PaymentInfo() {
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)

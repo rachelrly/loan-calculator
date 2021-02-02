@@ -1,0 +1,4 @@
+.payment-info-wrapper{
+  width: inherit;
+  max-width: calc(4* var(--button-width));
+}

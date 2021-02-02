@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.percent-sign-input{
+  position: relative;
+}
+
 .loan-amount-input{
   padding-left: 35px;
 }
@@ -37,6 +41,14 @@ right: calc(var(--spacer-sm) + 35px);
   color: var(--colors-accent);
 }
 
+form::after{
+  content: ' ';
+  width: 100%;
+  margin: var(--spacer-sm) 0;
+  height: calc(2 * var(--border-width));
+  background-color: var(--colors-accent);
+}
+
 
 
 
@@ -44,5 +56,17 @@ right: calc(var(--spacer-sm) + 35px);
   .loan-calculator-wrapper{
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  form{
+    margin-right: var(--spacer-lg);
+  }
+  form::after{
+    transform: translate(var(--spacer-med)) rotate(90deg);
+    transform-origin: right;
+    margin-top: var(--button-width);
+    margin-left: var(--spacer-sm);
+    margin-right: var(--spacer-sm);
+   
   }
 }
