@@ -1,4 +1,7 @@
 import React, { createContext, useReducer } from 'react'
+import { validateLoanAmount, validateInterestRate, validateLoanTerm } from '../utils/utils'
+
+
 
 /*Instance of context */
 export const LoanContext = createContext()
@@ -9,10 +12,17 @@ function LoanContextProvider({ children }) {
   const reducer = (state, action) => {
     const { val } = action.payload
     switch (action.type) {
-      case 'changeAmt': return { ...state, loanAmt: value }
-      case 'changeTerm': return { ...state, loanTerm: value }
-      case 'changeInterest': return { ...state, interestRate: value }
+      case 'changeAmt':
+        if (!validateLoanAmount(val)) return state
+        return { ...state, loanAmt: value }
+      case 'changeTerm':
+        if (!validateLoanTerm(val, action.payload.term)) return state
+        return { ...state, loanTerm: value }
+      case 'changeInterest':
+        if (!validateInterestRate(val)) return state
+        return { ...state, interestRate: value }
       case 'reset': return { loanAmt: 0, loanTerm: 0, interestRate: 0 }
+      default: return state
     }
   }
 
