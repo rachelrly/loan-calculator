@@ -1,11 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 
 
 export function useCalculatePayments() {
   /*Used formula: r(PV) / 1 - (1+r)^ -n*/
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
-  console.log({ loanAmt }, { loanTerm }, { interestRate })
 
   if (!loanAmt || !loanTerm.value || !interestRate) return 0
 
@@ -16,20 +15,30 @@ export function useCalculatePayments() {
   const denominator = 1 - Math.pow(1 + r, (n * -1))
   const payment = numerator / denominator
 
-  //MAKE BETTER ACCURACY IF TIME
   return parseFloat(payment).toFixed(2)
 }
 
 export function useLargeNumberWithCommas(num){
-  if(!Number(num)) return 0
+  useEffect(()=>{
+    console.log('USE EFFECT RAN')
+
+    
+  },[num])
+
+  if(!Number(num)) return 0 //if number is invalid display 0
 
   const numStr = `${num}`
+
+  if(numStr.length <=3) return num
+
   let formattedStr = ''
   for(let i=0; i<numStr.length; i++){
-    if((i+1) % 3 === 0){
+    const backIdx = numStr.length - 1 - i
+    console.log(i, backIdx)
+    if((backIdx+1) % 3 === 0 && backIdx){
       formattedStr += ','
     }
-    formattedStr += numStr[i]
+    formattedStr += numStr[i] 
   }
   return formattedStr
 }
