@@ -35,7 +35,7 @@ export function useLargeNumberWithCommas(num){
   for(let i=0; i<numStr.length; i++){
     const backIdx = numStr.length - 1 - i
     console.log(i, backIdx)
-    if((backIdx+1) % 3 === 0 && backIdx){
+    if((backIdx+1) % 3 === 0 && i>0){
       formattedStr += ','
     }
     formattedStr += numStr[i] 
