@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
-import { useCalculatePayments, useLargeNumberWithCommas } from '../hooks/hooks'
+import { useCalculatePayments, useLargeNumberWithCommas, useCalculateTotalInterest } from '../hooks/hooks'
 import '../css/PaymentInfo.css'
 
 
@@ -10,6 +10,7 @@ function PaymentInfo() {
   useEffect(() => { }, [loanAmt, loanTerm, interestRate])
 
   const monthlyPayment = useCalculatePayments()
+  const totalInterest = useCalculateTotalInterest()
   return (
     <div className='payment-info-wrapper'>
       <h2 className='monthly-payment'>
@@ -19,9 +20,15 @@ function PaymentInfo() {
         </div>
       </h2>
       <span className='total-principal'>
-        <span className='total-principal-label'>Total Principal Paid: </span>
+        <span className='total-principal-label'>Total principal paid: </span>
         <div className='total-principal-value'>
           <span >${useLargeNumberWithCommas(loanAmt)}</span>
+        </div>
+      </span>
+      <span className='total-interest'>
+        <span className='total-interest-label'>Total interest paid: </span>
+        <div className='total-interest-value'>
+          <span >${useLargeNumberWithCommas(totalInterest)}</span>
         </div>
       </span>
 

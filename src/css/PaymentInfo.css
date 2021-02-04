@@ -4,9 +4,13 @@
  height: 350px;
 }
 
-.monthly-payment, .total-principal{
+.monthly-payment, .total-principal, .total-interest{
   display: flex;
   justify-content: space-between;
+}
+
+.monthly-payment{
+  margin: var(--spacer-sm) 0;
 }
 
 .total-principal{

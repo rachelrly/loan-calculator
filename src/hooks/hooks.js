@@ -3,7 +3,8 @@ import { LoanContext } from '../contexts/LoanContext'
 
 
 export function useCalculatePayments() {
-  /*Used formula: r(PV) / 1 - (1+r)^ -n*/
+  /*This hook calculates the monthly payment from context
+  Used formula: r(PV) / 1 - (1+r)^ -n*/
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
 
   if (!loanAmt || !loanTerm.value || !interestRate) return 0
@@ -18,27 +19,50 @@ export function useCalculatePayments() {
   return parseFloat(payment).toFixed(2)
 }
 
+
+
 export function useLargeNumberWithCommas(num){
-  useEffect(()=>{
-    console.log('USE EFFECT RAN')
-
-    
-  },[num])
-
+/*This hook formats large numbers with commas */
   if(!Number(num)) return 0 //if number is invalid display 0
 
-  const numStr = `${num}`
+  let numStr = `${num}`
+
+  /*if decimal in number, split off last 3 chars*/
+  let regex = /\./g
+  let decimal = null
+  if(numStr.match(regex)){
+    decimal = numStr.slice(numStr.length-3)
+    numStr = numStr.slice(0, numStr.length-3)
+  } 
+
+  let formattedStr = ''
 
   if(numStr.length <=3) return num
 
-  let formattedStr = ''
   for(let i=0; i<numStr.length; i++){
-    const backIdx = numStr.length - 1 - i
-    console.log(i, backIdx)
+    const backIdx = numStr.length - 1 - i //negative index
+    
     if((backIdx+1) % 3 === 0 && i>0){
       formattedStr += ','
     }
     formattedStr += numStr[i] 
   }
+
+  if (decimal) formattedStr += decimal
   return formattedStr
+}
+
+
+export function useCalculateTotalInterest() {
+  const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
+
+  const term = loanTerm.type === 'year' ? loanTerm.value : loanTerm.value / 12
+
+  const yearlyRate = interestRate * 0.01 
+
+  const yearlyInterest = yearlyRate * loanAmt
+
+  const totalInterest = yearlyInterest * term
+
+  return parseFloat(totalInterest).toFixed(2)
 }
