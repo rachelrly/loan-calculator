@@ -42,6 +42,16 @@ This hook returns the total interest paid over time. Decimals are rounded to the
 
 This hook takes in a large numbers and returns a string with commas every third place from the end. If the number includes a decimal point, the commas start to the left of the decimal point.
 
-### Utils
-
 ### CSS
+
+#### varaibles.css
+
+This file contains all CSS variables for the project and is imported in App.js
+
+#### main.css
+
+This file contains the styles for DOM elements such as `input` and `section`
+
+#### Component specific CSS
+
+The other CSS files style specific components and their given children. These are largely based on class names. 

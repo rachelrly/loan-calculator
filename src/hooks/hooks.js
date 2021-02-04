@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 
 
@@ -37,7 +37,7 @@ export function useLargeNumberWithCommas(num){
 
   let formattedStr = ''
 
-  if(numStr.length <=3) return num
+  if(numStr.length <=3) return num 
 
   for(let i=0; i<numStr.length; i++){
     const backIdx = numStr.length - 1 - i //negative index
@@ -58,11 +58,11 @@ export function useCalculateTotalInterest() {
 
   const term = loanTerm.type === 'year' ? loanTerm.value : loanTerm.value / 12
 
-  const yearlyRate = interestRate * 0.01 
+  const yearlyRate = interestRate * 0.01
+  console.log(yearlyRate, term, loanAmt)
 
-  const yearlyInterest = yearlyRate * loanAmt
-
-  const totalInterest = yearlyInterest * term
+  const totalInterest = yearlyRate * term * loanAmt
+  console.log(totalInterest)
 
   return parseFloat(totalInterest).toFixed(2)
 }
