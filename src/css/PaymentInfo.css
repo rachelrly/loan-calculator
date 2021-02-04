@@ -4,14 +4,16 @@
  height: 350px;
 }
 
-.monthly-payment{
+.monthly-payment, .total-principal{
   display: flex;
   justify-content: space-between;
 }
 
+.total-principal{
+  padding: var(--spacer-sm) 0;
+}
 
 .monthly-payment-value{
   display: flex;
   position: relative;
- 
 }

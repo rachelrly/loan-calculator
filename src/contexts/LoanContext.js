@@ -5,9 +5,9 @@ export const LoanContext = createContext()
 
 /*This component wraps index.js */
 function LoanContextProvider({ children }) {
-  const [loanAmt, setLoanAmt] = useState(0)
-  const [loanTerm, setLoanTerm] = useState({ value: 0, type: 'month' })
-  const [interestRate, setInterestRate] = useState(0)
+  const [loanAmt, setLoanAmt] = useState('')
+  const [loanTerm, setLoanTerm] = useState({ value: '', type: 'month' })
+  const [interestRate, setInterestRate] = useState('')
 
   const isNumericValue = (value) => {
     /*returns boolean if number includes
@@ -27,13 +27,13 @@ function LoanContextProvider({ children }) {
     setInterestRate(val)
   }
 
-  const handleLoanTerm = (value, type = 'year') => {
+  const handleLoanTerm = (value, type = 'month') => {
     if (!isNumericValue(Number(value))) return null
     setLoanTerm({ value, type })
   }
 
   const value = { loanAmt, loanTerm: loanTerm, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
-  console.log(value)
+
   return (
     <LoanContext.Provider value={value}>
       {children}
