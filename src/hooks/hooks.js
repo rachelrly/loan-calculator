@@ -7,10 +7,10 @@ export function useCalculatePayments() {
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
   console.log({ loanAmt }, { loanTerm }, { interestRate })
 
-  if (!loanAmt || !loanTerm || !interestRate) return 0
+  if (!loanAmt || !loanTerm.value || !interestRate) return 0
 
-  const n = loanTerm
-  const r = interestRate / n
+  const n = loanTerm.type === 'year' ? loanTerm.value * 12 : loanTerm.value
+  const r = interestRate / 12
 
   const numerator = r * loanAmt
   const denominator = 1 - Math.pow(1 + r, (n * -1))
@@ -18,6 +18,5 @@ export function useCalculatePayments() {
 
   //MAKE BETTER ACCURACY IF TIME
   return parseFloat(payment).toFixed(2)
-
 }
 

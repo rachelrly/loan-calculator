@@ -13,18 +13,18 @@ function LoanContextProvider({ children }) {
     /*returns boolean if number includes
     digits and decimals only */
     const regex = /^\d+(\.\d{1,2})?$/
-    return regex.test(Number(value))
+    return regex.test(value)
   }
 
   const handleLoanAmt = val => {
-    if (!isNumericValue(val)) return null
-    setLoanAmt(Number(val))
+    if (!isNumericValue(Number(val))) return null
+    setLoanAmt(val)
   }
 
   const handleInterestRate = val => {
-    if (!isNumericValue(val)) return null
+    if (!isNumericValue(Number(val))) return null
     else if (val > 100) return null //percent cannot be greater than 100
-    setInterestRate(Number(val))
+    setInterestRate(val)
   }
 
   const handleLoanTerm = (value, type = 'year') => {
@@ -32,8 +32,8 @@ function LoanContextProvider({ children }) {
     setLoanTerm({ value, type })
   }
 
-  const value = { loanAmt, loanTerm: loanTerm.value, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
-
+  const value = { loanAmt, loanTerm: loanTerm, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
+  console.log(value)
   return (
     <LoanContext.Provider value={value}>
       {children}

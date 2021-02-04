@@ -11,7 +11,7 @@ function LoanTermInput() {
     <fieldset>
       <label className='loan-amount-label'>Loan term</label>
       <input type='text' className='loan-amount-input'
-        value={loanTerm}
+        value={loanTerm.value}
         onChange={e => handleLoanTerm(e.target.value)} />
     </fieldset>
   )
