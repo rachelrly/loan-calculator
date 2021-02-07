@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
 :root{
   --colors-accent: #AD1457;
   --colors-accent-dark:#212121;
@@ -24,7 +26,7 @@
 
   --border-width: 1px;
   
-  --font: "Verdana", sans-serif;
+  --font: "Barlow", sans-serif;
 }
 
 

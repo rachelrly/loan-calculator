@@ -47,6 +47,7 @@ button, .button{
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--font);
 }
 
 button:focus, .button:focus,
@@ -135,6 +136,7 @@ input{
   font-size: var(--font-size-sm);
   border: var(--border-width) solid var(--colors-accent-dark);
   width: 100px;
+  font-family: var(--font);
   padding: calc(var(--spacer-sm) * .8);
   background-color: #d2e4bd;
 }
