@@ -9,8 +9,7 @@ function PaymentInfo() {
   //re-render result page when data changes
   useEffect(() => { }, [loanAmt, loanTerm, interestRate])
 
-  const monthlyPayment = useCalculatePayments()
-  const totalInterest = useCalculateTotalInterest()
+  const {monthlyPayment, totalInterest} = useCalculatePayments()
   return (
     <div className='payment-info-wrapper'>
       <h2 className='monthly-payment'>

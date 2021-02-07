@@ -9,7 +9,6 @@ function InterestRateInput() {
     <fieldset>
       <label className='interest-rate-label'>Interest rate</label>
         <input 
-        placeholder='4.2'
         type='text' 
         className='interest-rate-input' 
         value={interestRate} 

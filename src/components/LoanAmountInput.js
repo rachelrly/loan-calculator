@@ -7,8 +7,7 @@ function LoanAmountInput() {
   return (
     <fieldset>
       <label className='loan-amount-label'>Loan amount</label>
-        <input type='text' 
-        placeholder='400000' 
+        <input type='text'
         className='loan-amount-input' 
         value={loanAmt} 
         onChange={e => dispatch({

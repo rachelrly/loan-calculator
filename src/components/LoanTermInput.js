@@ -11,8 +11,7 @@ function LoanTermInput() {
       <label className='loan-amount-label'>Loan term</label>
       <input type='text' 
         className='loan-amount-input'
-        placeholder='8 years'
-        value={loanTerm.value}
+        value={loanTerm}
         onChange={e => dispatch({
           type: 'setLoanTermValue',
           payload: {value: e.target.value}

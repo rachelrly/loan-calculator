@@ -38,11 +38,11 @@ function LoanContextProvider({ children }) {
   }
 
   const [state, dispatch] = useReducer(reducer, {
-    loanAmt: '',
-    interestRate: '',
+    loanAmt: '5000',
+    interestRate: '4.5',
     loanTerm: {
       isMonth:true,
-      number: ''
+      number: '60'
     }
   })
 

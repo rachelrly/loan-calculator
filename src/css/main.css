@@ -128,13 +128,13 @@ fieldset{
 /*limits width of label*/
 label{
   padding-right: var(--spacer-sm);
-  min-width: var(--button-width);
+  min-width: 70px;
 }
 
 input{
   font-size: var(--font-size-sm);
   border: var(--border-width) solid var(--colors-accent-dark);
-  width: 200px;
+  width: 100px;
   padding: calc(var(--spacer-sm) * .8);
   background-color: #d2e4bd;
 }
@@ -166,6 +166,9 @@ input:focus, textarea:focus{
    }
    p{
        padding-bottom: 0;
+   }
+   input{
+     width: 200px;
    }
 }
 

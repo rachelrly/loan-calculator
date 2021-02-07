@@ -1,8 +1,14 @@
-# Loan Calculator
+# [Loan Calculator](https://loan-calculator-two.vercel.app/)
 
 ## How to use
 
-Type in a value for each of the three fields. Once all three fields are filled with positive integers, the app will calculate the monthly payment and display it on the screen.
+To calculate monthly payments and total interest on a loan, input the loan amount, the interest rate, and the term in months. To use years instead of months, use the toggle button. 
+
+All three fields only take in integers and floats. There is basic validation based on the field context, i.e. interest rate cannot be greater than 100%. 
+ 
+Once all three fields are filled, the app will calculate the monthly payment and display it on the screen.
+
+Try out the live app [here](https://loan-calculator-two.vercel.app/).
 
 ## Images
 
