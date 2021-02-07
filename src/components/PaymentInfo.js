@@ -6,8 +6,8 @@ import '../css/PaymentInfo.css'
 
 function PaymentInfo() {
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
-  //re-render result page when data changes
-  useEffect(() => { }, [loanAmt, loanTerm, interestRate])
+  // //re-render result page when data changes
+  // useEffect(() => { }, [loanAmt, loanTerm, interestRate])
 
   const monthlyPayment = useCalculatePayments()
   const totalInterest = useCalculateTotalInterest()

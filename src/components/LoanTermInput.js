@@ -1,11 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 import MonthYearToggle from './MonthYearToggle'
 
 function LoanTermInput() {
   const { dispatch, loanTerm } = useContext(LoanContext)
-
-  useEffect(() => { }, [loanTerm])
 
   return (
     <div className='loan-term-wrapper'>
@@ -16,7 +14,7 @@ function LoanTermInput() {
         placeholder='8 years'
         value={loanTerm.value}
         onChange={e => dispatch({
-          type: 'setLoanTermAmt',
+          type: 'setLoanTermValue',
           payload: {value: e.target.value}
         })} />
     </fieldset>

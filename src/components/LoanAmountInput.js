@@ -1,10 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
 
 function LoanAmountInput() {
   const { dispatch, loanAmt } = useContext(LoanContext)
-
-  useEffect(() => { }, [loanAmt])
 
   return (
     <fieldset>
