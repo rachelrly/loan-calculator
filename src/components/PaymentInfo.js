@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { LoanContext } from '../contexts/LoanContext'
-import { useCalculatePayments, useLargeNumberWithCommas, useCalculateTotalInterest } from '../hooks/hooks'
+import { useCalculatePayments, useLargeNumberWithCommas } from '../hooks/hooks'
 import '../css/PaymentInfo.css'
 
 

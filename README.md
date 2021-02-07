@@ -12,6 +12,8 @@ Try out the live app [here](https://loan-calculator-two.vercel.app/).
 
 ## Images
 
+![](/screenshots/loan-calc-months.jpg) ![](/screenshots/loan-calc-years.jpg)
+
 ## Tech
 
 - React.js
@@ -44,11 +46,14 @@ The folder `hooks` contains one file, `hooks.js`, which contains named exports f
 
 #### useCalculatePayments()
 
-This hook takes the loan amount, loan term, and interest rate from context, and returns the payment calculated with this formula: `r(PV) / 1 - (1+r)^ -n`. Decimals are rounded to the second place.
+This hook uses the values from the `LoanContext` to calculate the monthly payment and total interest. 
 
-#### useCalculateTotalInterest()
+The monthly payment is calculated with this formula: `r(PV) / 1 - (1+r)^ -n`. 
 
-This hook returns the total interest paid over time. Decimals are rounded to the second place. 
+The total interest is the monthly payment x loan term - principal.
+
+Decimals are rounded to the second place.
+
 
 #### useLargeNumberWithCommas(number)
 
