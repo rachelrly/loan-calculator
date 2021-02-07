@@ -17,14 +17,20 @@ Type in a value for each of the three fields. Once all three fields are filled w
 
 - LoanCalculator.js (wraps calculator and results)
 - Calculator.js
-- PaymentInfo.js
+- LoanAmountInput.js
+- InterestRateInput.js
+- LoanTermInput.js
+- MonthYearToggle.js
+- PaymentInfo.js (displays results)
 - Header.js
 
 ### Context
 
 `LoanContext.js` contains the context instance and a component that renders the context provider.
 
-`LoanContextProvider` has a reducer, using the `useReducer()` hook, that
+`LoanContextProvider` has a reducer, using the `useReducer()` hook, that has a dispatch to change the three inputs and the toggle buttons for month/year. 
+
+This project uses a reducer to keep the closely tied state in sync with itself. 
 
 ### Hooks
 
@@ -55,3 +61,6 @@ This file contains the styles for DOM elements such as `input` and `section`
 #### Component specific CSS
 
 The other CSS files style specific components and their given children. These are largely based on class names. 
+
+- LoanCalculator.css
+- PaymentInfo.css

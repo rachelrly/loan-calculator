@@ -30,7 +30,7 @@ function LoanContextProvider({ children }) {
 
       case 'setLoanTermType': 
       console.log('RESET VALUE', value)
-      return {...state, loanTerm: {number: state.loanTerm.isMonth, isMonth: value}}
+      return {...state, loanTerm: {number: state.loanTerm.number, isMonth: value}}
       
       default: 
         throw new Error()

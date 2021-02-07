@@ -11,7 +11,7 @@ function LoanCalculator() {
   return (
     <section className='loan-calculator-wrapper'>
     <div className='instructions-wrapper'>
-    <p>Add a loan amount, an interest rate, and a loan term in months or years. Once all three fields have been filled out, the app will calculate the monthly payment and total interest.</p>
+    <p>Add a loan amount, interest rate, and loan term. Once all three fields have been filled out, the app will calculate the monthly payment and total interest.</p>
     </div>
       <form className='calculator-wrapper'>
         <LoanAmountInput />

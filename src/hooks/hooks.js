@@ -10,6 +10,7 @@ export function useCalculatePayments() {
   if (!loanAmt || !loanTerm || !interestRate) return 0
 
   const n = !isMonth ? loanTerm * 12 : loanTerm
+  console.log({n, loanTerm})
   const r = (interestRate * 0.01) / 12
 
   const numerator = r * loanAmt
