@@ -44,7 +44,6 @@ button, .button{
   color: var(--colors-accent);
   border: var(--border-width) solid var(--colors-accent);
   padding: var(--spacer-tiny);
-  border-radius: var(--button-border-radius);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +62,6 @@ section{
   padding: var(--spacer-sm) var(--spacer-lg);
   justify-content: flex-start;
   align-items: center;
-  max-height: 350px;
   color: var(--colors-black);
 }
 
@@ -88,28 +86,16 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--colors-accent-dark);
+  color: var(--colors-white);
   padding: var(--spacer-sm);
-  height: var(--button-width);
+  background-color: var(--colors-accent);
+  height:var(--button-width);
 }
 
 h1{
   font-size: var(--font-size-lg);
 }
 
-header button,
-header .button{
-  color: var(--colors-white);
-  border: var(--border-width) solid var(--colors-white);
-  background-color: inherit;
-}
-
-header button:focus, header .button:focus,
-header button:hover, header .button:hover{
-  background-color: var(--colors-white);
-  color: var(--colors-accent);
-  border: var(--border-width) solid var(--colors-accent);
-}
 /* END HEADER STYLES */
 
 
@@ -133,8 +119,10 @@ fieldset{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacer-sm) 0;
+  padding: var(--spacer-sm);
   outline: 0;
+  background-color: var(--colors-accent-light);
+  margin-bottom: var(--spacer-sm);
   border: 0;
 }
 /*limits width of label*/
@@ -148,7 +136,7 @@ input{
   border: var(--border-width) solid var(--colors-accent-dark);
   width: 200px;
   padding: calc(var(--spacer-sm) * .8);
-
+  background-color: #d2e4bd;
 }
 
 

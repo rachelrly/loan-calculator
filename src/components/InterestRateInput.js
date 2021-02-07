@@ -9,11 +9,10 @@ function InterestRateInput() {
 
   return (
     <fieldset>
-      <label className='interest-rate-label'>Loan amount</label>
-      <span className='percent-sign-input'>
-        <span className='percent-sign'>%</span>
-        <input type='text' className='interest-rate-input' value={interestRate} onChange={e => handleInterestRate(e.target.value)} />
-      </span>
+      <label className='interest-rate-label'>Interest rate</label>
+        <input 
+        placeholder='4.2'
+        type='text' className='interest-rate-input' value={interestRate} onChange={e => handleInterestRate(e.target.value)} />
     </fieldset>
   )
 }

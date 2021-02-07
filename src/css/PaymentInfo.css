@@ -10,14 +10,15 @@
 }
 
 .monthly-payment{
-  margin: var(--spacer-sm) 0;
+  margin: var(--spacer-lg) 0 var(--spacer-sm);
 }
 
 .total-principal{
   padding: var(--spacer-sm) 0;
 }
 
-.monthly-payment-value{
-  display: flex;
-  position: relative;
+.highlight-wrapper{
+  background-color: var(--colors-accent-light);
+  padding: var(--spacer-sm);
+  margin-bottom: var(--spacer-sm);
 }

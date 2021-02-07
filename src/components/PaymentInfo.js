@@ -19,13 +19,13 @@ function PaymentInfo() {
           <span >${useLargeNumberWithCommas(monthlyPayment)}</span>
         </div>
       </h2>
-      <span className='total-principal'>
+      <span className='total-principal highlight-wrapper'>
         <span className='total-principal-label'>Total principal paid: </span>
         <div className='total-principal-value'>
           <span >${useLargeNumberWithCommas(loanAmt)}</span>
         </div>
       </span>
-      <span className='total-interest'>
+      <span className='total-interest highlight-wrapper'>
         <span className='total-interest-label'>Total interest paid: </span>
         <div className='total-interest-value'>
           <span >${useLargeNumberWithCommas(totalInterest)}</span>

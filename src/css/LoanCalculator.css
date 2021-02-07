@@ -5,29 +5,6 @@
   align-self: center;
 }
 
-.dollar-sign-input{
-  position: relative;
-}
-
-.percent-sign-input{
-  position: relative;
-}
-
-
-.dollar-sign{
-  right: 170px;
-  width: inherit;
-  
-}
-.interest-rate-input{
-  padding-right: 45px;
-}
-
-.percent-sign{
-width: inherit;
-right: calc(var(--spacer-sm) + 35px);
-}
-
 .percent-sign, .dollar-sign{
   overflow: visible;
   z-index: 5;
@@ -38,16 +15,32 @@ right: calc(var(--spacer-sm) + 35px);
   color: var(--colors-accent);
 }
 
-form::after{
-  content: ' ';
-  width: 100%;
-  margin: var(--spacer-sm) 0;
-  height: calc(2 * var(--border-width));
-  background-color: var(--colors-accent);
+.loan-term-wrapper{
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  background-color: var(--colors-accent-light);
 }
 
+.toggle-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--spacer-sm) var(--spacer-sm);
+}
 
+.toggle-active{
+  background-color: var(--colors-accent);
+  color: var(--colors-accent-light);
+}
 
+.instructions-wrapper{
+  max-width: calc(4 * var(--button-width));
+  margin-bottom: var(--spacer-lg);
+}
+
+.instructions-wrapper p{
+  padding-top: 0;
+}
 
 @media all and (min-width: 700px){
   .loan-calculator-wrapper{

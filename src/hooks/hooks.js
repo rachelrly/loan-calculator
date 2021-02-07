@@ -56,13 +56,14 @@ export function useLargeNumberWithCommas(num){
 export function useCalculateTotalInterest() {
   const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
 
-  const term = loanTerm.type === 'year' ? loanTerm.value : loanTerm.value / 12
+  if (!loanAmt || !loanTerm.value || !interestRate) return 0
 
-  const yearlyRate = interestRate * 0.01
-  console.log(yearlyRate, term, loanAmt)
+  const n = loanTerm.type === 'year' ? loanTerm.value * 12 : loanTerm.value
+  const r = (interestRate * 0.01) / 12
 
-  const totalInterest = yearlyRate * term * loanAmt
-  console.log(totalInterest)
-
-  return parseFloat(totalInterest).toFixed(2)
+  const numerator = r * loanAmt
+ 
+  const denominator = 1 - Math.pow(1 + r, (n * -1))
+  const payment = numerator * denominator
+  return parseFloat(payment).toFixed(2)
 }
