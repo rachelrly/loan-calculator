@@ -3,7 +3,7 @@ import { LoanContext } from '../contexts/LoanContext'
 
 
 function InterestRateInput() {
-  const { handleInterestRate, interestRate } = useContext(LoanContext)
+  const { dispatch, interestRate } = useContext(LoanContext)
 
   useEffect(() => { }, [interestRate])
 
@@ -12,7 +12,13 @@ function InterestRateInput() {
       <label className='interest-rate-label'>Interest rate</label>
         <input 
         placeholder='4.2'
-        type='text' className='interest-rate-input' value={interestRate} onChange={e => handleInterestRate(e.target.value)} />
+        type='text' 
+        className='interest-rate-input' 
+        value={interestRate} 
+        onChange={e => dispatch({
+          type: 'setInterestRate',
+          payload: {value: e.target.value}
+        })} />
     </fieldset>
   )
 }

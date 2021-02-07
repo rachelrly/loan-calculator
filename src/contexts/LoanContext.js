@@ -1,14 +1,10 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
 
 /*Instance of context */
 export const LoanContext = createContext()
 
 /*This component wraps index.js */
 function LoanContextProvider({ children }) {
-  const [loanAmt, setLoanAmt] = useState('')
-  const [loanTerm, setLoanTerm] = useState({ value: '', type: 'month' })
-  const [interestRate, setInterestRate] = useState('')
-
   const isNumericValue = (value) => {
     /*returns boolean if number includes
     digits and decimals only */
@@ -16,23 +12,45 @@ function LoanContextProvider({ children }) {
     return regex.test(value)
   }
 
-  const handleLoanAmt = val => {
-    if (!isNumericValue(Number(val))) return null
-    setLoanAmt(val)
+  function reducer(state, action){
+    const {value} = action.payload
+    switch(action.type){
+      case 'setLoanAmt': 
+      if (!isNumericValue(Number(value))) return state
+      return {...state, loanAmt: value}
+
+      case 'setInterestRate': 
+      if (!isNumericValue(Number(value))) return state
+      else if (value > 100) return state //can't be more than 100%
+      return {...state, interestRate: value}
+
+      case 'setLoanTermValue': 
+      if (!isNumericValue(Number(value))) return state
+      return {...state, loanTerm: {isMonth: state.loanTerm.isMonth, number: value}}
+
+      case 'setLoanTermType': 
+      return {...state, loanTerm: {number: state.loanTerm.isMonth, isMonth: value}}
+      
+      default: 
+        throw new Error()
+    }
   }
 
-  const handleInterestRate = val => {
-    if (!isNumericValue(Number(val))) return null
-    else if (val > 100) return null //percent cannot be greater than 100
-    setInterestRate(val)
-  }
+  const [state, dispatch] = useReducer(reducer, {
+    loanAmt: '',
+    interestRate: '',
+    loanTerm: {
+      isMonth:true,
+      number: ''
+    }
+  })
 
-  const handleLoanTerm = (value, type = 'month') => {
-    if (!isNumericValue(Number(value))) return null
-    setLoanTerm({ value, type })
-  }
-
-  const value = { loanAmt, loanTerm: loanTerm, interestRate, handleLoanAmt, handleInterestRate, handleLoanTerm }
+  const value = { 
+    loanAmt: state.loanAmt,  
+    interestRate: state.interestRate,
+    loanTerm: state.loanTerm.number,
+    isMonth: state.loanTerm.isMonth,
+    dispatch }
 
   return (
     <LoanContext.Provider value={value}>

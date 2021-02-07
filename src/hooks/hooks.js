@@ -5,11 +5,11 @@ import { LoanContext } from '../contexts/LoanContext'
 export function useCalculatePayments() {
   /*This hook calculates the monthly payment from context
   Used formula: r(PV) / 1 - (1+r)^ -n*/
-  const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
+  const { loanAmt, loanTerm, interestRate, isMonth } = useContext(LoanContext)
 
-  if (!loanAmt || !loanTerm.value || !interestRate) return 0
+  if (!loanAmt || !loanTerm || !interestRate) return 0
 
-  const n = loanTerm.type === 'year' ? loanTerm.value * 12 : loanTerm.value
+  const n = !isMonth ? loanTerm * 12 : loanTerm
   const r = (interestRate * 0.01) / 12
 
   const numerator = r * loanAmt
@@ -54,11 +54,11 @@ export function useLargeNumberWithCommas(num){
 
 
 export function useCalculateTotalInterest() {
-  const { loanAmt, loanTerm, interestRate } = useContext(LoanContext)
+  const { loanAmt, loanTerm, interestRate, isMonth } = useContext(LoanContext)
 
-  if (!loanAmt || !loanTerm.value || !interestRate) return 0
+  if (!loanAmt || !loanTerm || !interestRate) return 0
 
-  const n = loanTerm.type === 'year' ? loanTerm.value * 12 : loanTerm.value
+  const n = !isMonth ? loanTerm * 12 : loanTerm
   const r = (interestRate * 0.01) / 12
 
   const numerator = r * loanAmt
