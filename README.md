@@ -12,7 +12,7 @@ Try out the live app [here](https://loan-calculator-two.vercel.app/).
 
 ## Images
 
-![](/screenshots/loan-calc-months.jpg) ![](/screenshots/loan-calc-years.jpg)
+![](/screenshots/loan-calc-months.png) ![](/screenshots/loan-calc-years.png)
 
 ## Tech
 
