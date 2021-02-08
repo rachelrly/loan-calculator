@@ -10,6 +10,8 @@ Once all three fields are filled, the app will calculate the monthly payment and
 
 Try out the live app [here](https://loan-calculator-two.vercel.app/).
 
+Read my [Medium post](https://rachanastasia.medium.com/usestate-vs-usereducer-9bbfca768f51) about using the useReducer hook in this project!
+
 ## Images
 
 ![](/screenshots/loan-calc-months.png) ![](/screenshots/loan-calc-years.png)
